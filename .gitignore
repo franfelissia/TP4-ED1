@@ -1,0 +1,98 @@
+# KiCad project files
+# -------------------------
+
+# Archivos de respaldo automático
+*.bak
+*.bck
+*-bak.kicad_pcb
+*-bak.kicad_sch
+*_bak.kicad_pcb
+*_bak.kicad_sch
+_autosave-*
+
+# Archivos de bloqueo
+*.lck
+
+# Carpetas de respaldo de KiCad
+*-backups/
+
+# Archivos temporales del editor de esquemáticos
+*.s~*
+
+# Archivos de simulación (ngspice)
+*.cir
+*.raw
+
+# Archivos de fabricación generados (Gerbers, Drill, etc.)
+# Descomenta si los generates y no quieres incluirlos en el repo
+# gerbers/
+# fab/
+# manufacturing/
+
+# Archivos de BOM generados
+# *.csv
+# *.xml
+# *.html
+
+# Archivos de netlist generados
+*.net
+*.xml
+
+# Archivos de posición de componentes
+*.pos
+
+# Archivos de reporte de DRC/ERC
+*.rpt
+
+# KiCad 5 - Caché de librerías de esquemáticos
+*-cache.lib
+*-rescue.lib
+rescue-backup/
+
+# KiCad 5 - Archivos de proyecto
+*.pro
+
+# KiCad 6/7/8 - Archivos locales de configuración del proyecto
+*.kicad_prl
+
+# Archivos de símbolo de rescate
+*-rescue.kicad_sym
+
+# Directorios de exportación comunes
+output/
+outputs/
+export/
+exports/
+plot/
+plots/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+.directory
+
+*.bit
+.job/
+.pio/
+
+# Vivado
+Code/Submodules/ADC/ADC.dcp
+Code/Submodules/ADC/ADC.xml
+Code/Submodules/ADC/ADC.csv.txt
+Code/Submodules/ADC/ADC_sim_netlist.v
+Code/Submodules/ADC/ADC_sim_netlist.vhdl
+Code/Submodules/ADC/ADC_stub.v
+Code/Submodules/ADC/ADC_stub.vhdl
+Code/Submodules/ADC/ADC_sv.sv
+Code/Submodules/ADC/ADC_sv.sveo
+Code/Submodules/ADC/ADC.veo
+Code/Submodules/ADC/doc/
