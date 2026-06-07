@@ -254,7 +254,7 @@
         "BOARD_CONNECTIONS": [ { "value": "", "resolve_type": "generated", "usage": "all" } ],
         "DEVICE": [ { "value": "xc7a35t", "resolve_type": "generated", "usage": "all" } ],
         "PACKAGE": [ { "value": "cpg236", "resolve_type": "generated", "usage": "all" } ],
-        "PREFHDL": [ { "value": "VHDL", "resolve_type": "generated", "usage": "all" } ],
+        "PREFHDL": [ { "value": "VERILOG", "resolve_type": "generated", "usage": "all" } ],
         "SILICON_REVISION": [ { "value": "", "resolve_type": "generated", "usage": "all" } ],
         "SIMULATOR_LANGUAGE": [ { "value": "VHDL", "resolve_type": "generated", "usage": "all" } ],
         "SPEEDGRADE": [ { "value": "-1", "resolve_type": "generated", "usage": "all" } ],
@@ -345,5 +345,5 @@
       }
     }
   },
-  "checksum": "fd0e92ae"
+  "checksum": "fc83144e"
 }
