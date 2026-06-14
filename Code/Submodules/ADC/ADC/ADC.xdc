@@ -1,6 +1,5 @@
- 
 
-# file: ADC_ooc.xdc
+# file: ADC.xdc
 # (c) Copyright 2009 - 2023 AMD, Inc. All rights reserved.
 # 
 # This file contains confidential and proprietary information
@@ -47,11 +46,8 @@
 # THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
 # PART OF THIS FILE AT ALL TIMES.
 
-#################
-#DEFAULT CLOCK CONSTRAINTS
 
-############################################################
-# Clock Period Constraints                                 #
-############################################################
+# Input clock periods. These duplicate the values entered for the
+#  input clocks. You can use these to time your system
+#----------------------------------------------------------------
 #create_clock -period 10 [get_ports dclk_in]
-

@@ -1,4 +1,3 @@
- 
 
 -- file: ADC.vhd
 -- (c) Copyright 2009 - 2023 AMD, Inc. All rights reserved.
@@ -63,7 +62,6 @@ entity ADC is
     do_out          : out  STD_LOGIC_VECTOR (15 downto 0);   -- Output data bus for dynamic reconfiguration port
     drdy_out        : out  STD_LOGIC;                        -- Data ready signal for the dynamic reconfiguration port
     dclk_in         : in  STD_LOGIC;                         -- Clock input for the dynamic reconfiguration port
-    convst_in       : in  STD_LOGIC;                         -- Convert Start Input
     vauxp6          : in  STD_LOGIC;                         -- Auxiliary Channel 6
     vauxn6          : in  STD_LOGIC;
     busy_out        : out  STD_LOGIC;                        -- ADC Busy signal
@@ -79,7 +77,7 @@ end ADC;
 architecture AMD of ADC is
 
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of AMD : architecture is "ADC,xadc_wiz_v3_3_13,{component_name=ADC,enable_axi=false,enable_axi4stream=false,dclk_frequency=100,enable_busy=true,enable_convst=true,enable_convstclk=false,enable_dclk=true,enable_drp=true,enable_eoc=true,enable_eos=true,enable_vbram_alaram=false,enable_vccddro_alaram=false,enable_Vccint_Alaram=false,enable_Vccaux_alaram=falseenable_vccpaux_alaram=false,enable_vccpint_alaram=false,ot_alaram=false,user_temp_alaram=false,timing_mode=event_driven,channel_averaging=None,sequencer_mode=off,startup_channel_selection=single_channel}";
+  attribute CORE_GENERATION_INFO of AMD : architecture is "ADC,xadc_wiz_v3_3_13,{component_name=ADC,enable_axi=false,enable_axi4stream=false,dclk_frequency=100,enable_busy=true,enable_convst=false,enable_convstclk=false,enable_dclk=true,enable_drp=true,enable_eoc=true,enable_eos=true,enable_vbram_alaram=false,enable_vccddro_alaram=false,enable_Vccint_Alaram=false,enable_Vccaux_alaram=falseenable_vccpaux_alaram=false,enable_vccpint_alaram=false,ot_alaram=false,user_temp_alaram=false,timing_mode=continuous,channel_averaging=None,sequencer_mode=off,startup_channel_selection=single_channel}";
 
 
   signal FLOAT_VCCAUX_ALARM : std_logic;
@@ -145,9 +143,9 @@ begin
 
  U0 : XADC
      generic map(
-        INIT_40 => X"0216", -- config reg 0
+        INIT_40 => X"0116", -- config reg 0
         INIT_41 => X"31AF", -- config reg 1
-        INIT_42 => X"6120", -- config reg 2
+        INIT_42 => X"3400", -- config reg 2
         INIT_48 => X"0100", -- Sequencer channel selection
         INIT_49 => X"0000", -- Sequencer channel selection
         INIT_4A => X"0000", -- Sequencer Average selection
@@ -167,11 +165,11 @@ begin
         INIT_58 => X"5999",  -- Vccbram upper alarm limit
         INIT_5C => X"5111",  -- Vccbram lower alarm limit
         SIM_DEVICE => "7SERIES",
-        SIM_MONITOR_FILE => "ADC.csv.txt"
+        SIM_MONITOR_FILE => "design.txt"
         )
 
 port map (
-        CONVST              => convst_in,
+        CONVST              => '0',
         CONVSTCLK           => '0',
         DADDR(6 downto 0)   => daddr_in(6 downto 0),
         DCLK                => dclk_in,

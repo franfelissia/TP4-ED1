@@ -60,7 +60,6 @@ COMPONENT ADC
     drdy_out : OUT STD_LOGIC;
     do_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     dclk_in : IN STD_LOGIC;
-    convst_in : IN STD_LOGIC;
     vp_in : IN STD_LOGIC;
     vn_in : IN STD_LOGIC;
     vauxp6 : IN STD_LOGIC;
@@ -87,7 +86,6 @@ your_instance_name : ADC
     drdy_out => drdy_out,
     do_out => do_out,
     dclk_in => dclk_in,
-    convst_in => convst_in,
     vp_in => vp_in,
     vn_in => vn_in,
     vauxp6 => vauxp6,

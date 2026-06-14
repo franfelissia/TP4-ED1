@@ -85,15 +85,15 @@ Desktop.ini
 .pio/
 
 # Vivado
-Code/Submodules/ADC/ADC.dcp
-Code/Submodules/ADC/ADC.xml
-Code/Submodules/ADC/ADC.csv.txt
-Code/Submodules/ADC/ADC_sim_netlist.v
-Code/Submodules/ADC/ADC_sim_netlist.vhdl
-Code/Submodules/ADC/ADC_stub.v
-Code/Submodules/ADC/ADC_stub.vhdl
-Code/Submodules/ADC/ADC_sv.sv
-Code/Submodules/ADC/ADC_sv.sveo
-Code/Submodules/ADC/ADC.veo
-Code/Submodules/ADC/doc/
-Code/Submodules/ADC/ADC.v
+Code/Submodules/ADC/ADC/ADC.dcp
+Code/Submodules/ADC/ADC/ADC.xml
+Code/Submodules/ADC/ADC/ADC.csv.txt
+Code/Submodules/ADC/ADC/ADC_sim_netlist.v
+Code/Submodules/ADC/ADC/ADC_sim_netlist.vhdl
+Code/Submodules/ADC/ADC/ADC_stub.v
+Code/Submodules/ADC/ADC/ADC_stub.vhdl
+Code/Submodules/ADC/ADC/ADC_sv.sv
+Code/Submodules/ADC/ADC/ADC_sv.sveo
+Code/Submodules/ADC/ADC/ADC.veo
+Code/Submodules/ADC/ADC/doc/
+Code/Submodules/ADC/ADC/ADC.v
