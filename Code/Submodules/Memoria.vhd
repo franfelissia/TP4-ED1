@@ -34,7 +34,7 @@ architecture Behavioral of Memoria is
         Clk:  out std_logic
     ); end component;
     
-    type ram_type is array (0 to 155647)
+    type ram_type is array (0 to 153599)
         of std_logic_vector(7 downto 0);
     
     signal eom:      std_logic;
@@ -45,7 +45,7 @@ architecture Behavioral of Memoria is
     signal weD:      std_logic;
     signal clk_c:    std_logic;
     signal rst:      std_logic;
-    signal addr:     integer range 0 to 149000;
+    signal addr:     integer range 0 to 149999;
     signal clk_d:    std_logic;
     signal RAM:      ram_type;
 
@@ -64,15 +64,13 @@ begin
     
     JK : process (clk_100MHz) begin
         if rising_edge(clk_100MHz) then
-            if weAux = '0' then
-                if BtnAux = '1' then
-                    weAux <= '1';
-                end if;
-            elsif weAux = '1' then
-                if eom = '1' then
-                    weAux <= '0';
-                end if;
-            end if;
+            case std_logic_vector'(btnAux & eom) is
+                when "00" => weAux <= weAux;
+                when "01" => weAux <= '0';
+                when "10" => weAux <= '1';
+                when "11" => weAux <= not weAux;
+                when others => weAux <= weAux;
+            end case;
         end if;
     end process JK;
     
@@ -87,8 +85,8 @@ begin
         Clk => grab
     );
     
-    FFD: process(clk_c) begin
-        if rising_edge(clk_c) and clk_c = '1' then
+    FFD: process(clk_100MHz) begin
+        if rising_edge(clk_100MHz) then
             weD <= we;
         end if;
     end process FFD;
@@ -96,15 +94,15 @@ begin
     rst <= we and not(weD);
     
     FFT_c: process(eoc) begin
-        if rising_edge(eoc) and eoc = '1' then
+        if rising_edge(eoc) then
             clk_c <= not clk_c;
         end if;
     end process FFT_c;
     
     Contador: process(clk_c) begin
-        if rising_edge(clk_c) and clk_c = '1' then
+        if rising_edge(clk_c) then
             if rst = '1' then addr <= 0;
-            elsif addr = 149000 then
+            elsif addr = 149999 then
                 eom  <= '1';
                 addr <= 0;
             else
@@ -121,7 +119,7 @@ begin
     end process FFT_d;
     
     RAM_150Kbx8: process(clk_d) begin
-        if rising_edge(clk_d) and clk_d = '1' then
+        if rising_edge(clk_d) then
             if we = '1' then
                 RAM(addr) <= din;
             end if;
